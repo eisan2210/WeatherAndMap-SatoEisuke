@@ -47,7 +47,7 @@ struct ForecastDay: Codable, Hashable {
     let date: String
     let day: DailyForecast
     let hour: [HourlyForecast]
-    //let astro:
+    let astro: AstroForecast
     // 2025-02-16→2025年2月16日の形式に変換する関数
     func toDisplayDate(_ date: String) -> String {
         let formatter = DateFormatter()
@@ -60,7 +60,14 @@ struct ForecastDay: Codable, Hashable {
     
     
 }
-
+//月の満ち欠け
+struct AstroForecast: Codable, Hashable {
+    let moonPhase: String
+    
+    enum CodingKeys: String, CodingKey {
+        case moonPhase = "moon_phase"
+    }
+}
 
 // 日毎の予報
 struct DailyForecast: Codable, Hashable {

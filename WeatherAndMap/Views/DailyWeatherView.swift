@@ -54,12 +54,21 @@ struct DailyWeatherView: View {
                                 Text("%")//数字が入る
                             }
                             .font(.subheadline)
+                           
+                            //Text(forecastDay.astro.moonPhase)
+                                Image(forecastDay.astro.moonPhase)
+                                .resizable()
+                                .frame(maxWidth:30, maxHeight: 30)
+                                .scaledToFit()
+                                    
                             
                         }
                         .padding()
-                        .frame(width: ScreenInfo.width / 2, height: ScreenInfo.height / 3)
+                        .frame(width: ScreenInfo.width / 2, height: ScreenInfo.height / 2)
                         .background(.yellow.opacity(0.3)) //背景色、透過率を設定
                         .clipShape(.rect(cornerRadius: 10))
+                        
+                        
                     }
                 }
                 
@@ -79,6 +88,8 @@ struct DailyWeatherView: View {
                         print("Location:", location)
                     }
                 }
+
+
                 
             } else {
                 // コピペした部分。データがない時（または起動直後）に表示
